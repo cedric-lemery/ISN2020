@@ -14,3 +14,9 @@ Il y a quelques concepts majeurs à comprendre :
 ![Principe des branches](ressources/feature-branches.png "Principe des branches")
 
 * pour comprendre comment fonctionne github, vous pouvez jeter un oeil au [guide de git](https://guides.github.com/activities/hello-world/). Surtout les étapes 2, 3 & 4.
+
+## Ce qu'il faut faire
+
+* Créer une branche dont le nom est projetXYZ où XYZ correspondent aux initiales des membres du groupe.
+* Déposer vos fichiers dans le dossier correspondant à votre travail
+* faire un 1er commit sur votre branche avec comme *commentaire* "dépôt initial"
