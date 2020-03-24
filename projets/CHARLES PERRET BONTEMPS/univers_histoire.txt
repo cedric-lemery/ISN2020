@@ -1,0 +1,20 @@
+1)Vrai|(Dans une monarchie, le dauphin est le fils du roi/
+2)Vrai|(L'antiquité débute quand l'écriture est inventée/
+3)Faux|L'Antiquité commence en -5000(L'Antiquité commence en -3000/
+4)Vrai|(Le 4 Juillet correspond à la fête nationale des USA/
+5)Vrai|(En 1916 a eu lieu la bataille de Verdun/
+6)Faux|Elle commence au début des années 1800(La révolution industrielle en France commence au début du 20e siècle/
+7)Vrai|(L'affaire Dreyfus a été défendue par Zola/
+8)Faux|Il est surnomé le roi soleil(Louis XIV est surnomé le roi étoile/
+9)Faux|L'UE est composé de 28 pays(L'UE est composé de 26 pays/
+10)Vrai|(Le traité de Versaille est signé en 1919/
+11)Faux|Elle a eu lieu en 1920(La révolution Russe a eu lieu en 1800/
+12)Faux|Elle s'est achevée en 1945 !(La seconde guerre mondiale s'est achevée en 1947/
+13)Vrai|(Le mur de Berlin a été construit en 1961/
+14)Vrai|(La Prusse est l'ancien nom de l'Allemagne actuelle/
+15)Faux|C'est la fête du travail !(Le 1 Mai correspond à la fin de la seconde guerre mondiale/
+16)Faux|C'est un philosophe du 18e siècle(Voltaire est un philosophe du 19e siècle/
+17)Faux|Il se fait après la fin de la 1er GM(Le traité de Versailles se fait à l'issue de la fin de la 2nd guerre mondiale/
+18)Vrai|(Au Moyen-âge, les paysans ne vivaient pas plus de 30 ans/
+19)Faux|Elle s'est faite en 1492(La découverte de l'Amrérique a été faite en 1482/
+20)Vrai|(La couleur blanche dans le drapeau français représente Paris/
