@@ -16,9 +16,6 @@ def vrai_faux():
 
     def lancerJeu():
         Fenetre1.destroy()
-        Fenetre2 = Tk()## Deuxième fenêtre
-        Fenetre2.geometry('300x450')
-        Fenetre2.title("Lancement du jeu")
         text1=Label(Fenetre2, text="Votre pseudo")
         text1.place(x=180, y=140)
         w=Entry(Fenetre2)
@@ -144,6 +141,11 @@ def vrai_faux():
     Fenetre1 = Tk() ##première fenêtre
     Fenetre1.geometry('300x450')
     Fenetre1.title("Vrai ou Faux ?")
+
+    Fenetre2 = Tk()## Deuxième fenêtre
+    Fenetre2.geometry('300x450')
+    Fenetre2.title("Lancement du jeu")
+
     Bouton_cliquez=Button(Fenetre1,text="Lancer le jeu Vrai ou Faux", command=lancerJeu, bg="gray")
     Bouton_cliquez.place(x=75,y=250)
     Fenetre1.mainloop()
@@ -277,7 +279,7 @@ root = Tk()
 root.title('Multi-jeux')
 
 
-image = PhotoImage(file='menu jeu.gif')
+image = PhotoImage(file='menu_jeu.gif')
 
 canvas = Canvas(root)
 canvas.pack(fill='both', expand=1)
