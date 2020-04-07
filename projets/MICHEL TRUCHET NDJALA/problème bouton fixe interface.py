@@ -11,11 +11,15 @@ Fenetre.title('Mastermind.exe')
 Fenetre.wm_attributes("-fullscreen","1")
 Fenetre.configure(bg="royalblue")
 
+w,h = Fenetre.winfo_screenwidth(), Fenetre.winfo_screenheight()
+print('dimensions de la fenetre',w,h)
+
 
 
 
 Mon_bouton5 = Button(Fenetre,text="     X     ", bg="darkred", command=quitter)
-Mon_bouton5.place(x=1850,y=20)
+#Mon_bouton5.place(x=1850,y=20)
+Mon_bouton5.place(x=int(w*0.5),y=int(h*0.5))
 
 
 Fenetre.mainloop()
