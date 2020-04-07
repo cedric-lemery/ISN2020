@@ -15,9 +15,11 @@ img = pygame.image.load("mario2.jpg")
 brickmario = pygame.image.load("brick_mario.png")
 brickmove = pygame.image.load("petite_brick_mario.png")
 
+fontScore=pygame.font.Font(None, 50)
+
+
 def score(compte):
-    font=pygame.font.Font(None, 50)
-    texte=font.render("score : " + str(compte), True, (0,0,0))
+    texte=fontScore.render("score : " + str(compte), True, (0,0,0))
     surface.blit(texte,[10,0])
 
 
@@ -216,8 +218,10 @@ def jeu():
             xp=1400
             yp=randint(0, 600)
 
+        print(xp,x-50,xp+p_vitesse,xp<(x-50)<xp+p_vitesse)
         if xp<(x-50)<xp+p_vitesse:
             score_actuel+=1
+            print('ok')
 
 
 
