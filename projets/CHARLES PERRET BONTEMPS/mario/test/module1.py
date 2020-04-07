@@ -1,4 +1,4 @@
-﻿import pygame
+import pygame
 from random import *
 from threading import Timer
 
@@ -27,10 +27,7 @@ def fonde(xf, yf):
     surface.blit(fond, (xf,yf))
 def mario(x, y, image):
     surface.blit(image, (x,y))
-def brick(xb,yb):
-    for loop in range(6):
-        surface.blit(brickmario, (xb,yb))
-        xb+=300
+
 def petitebrick(xp,yp):
     surface.blit(brickmove, (xp,yp))
 
@@ -117,6 +114,7 @@ def gameover():
 
     def imagego(xgo,ygo):
         surface.blit(imggo, (xgo,ygo))
+
     game_over = False
     while not game_over:
 
@@ -218,17 +216,39 @@ def jeu():
             xp=1400
             yp=randint(0, 600)
 
-        if xp<=(x-50)<xp+p_vitesse:
-            score_actuel+=1
+
+        if 3<=score_actuel<6:
+            p_vitesse=3
+        if 6<=score_actuel<9:
+            p_vitesse=4
+        if 9<=score_actuel<12:
+            p_vitesse=5
+        if 12<=score_actuel<15:
+            p_vitesse=6
+        if 15<=score_actuel<18:
+            p_vitesse=7
+        if 18<=score_actuel<21:
+            p_vitesse=8
+        if 21<=score_actuel<24:
+            p_vitesse=9
+        if 24<=score_actuel<27:
+            p_vitesse=10
+        if 27<=score_actuel<30:
+            p_vitesse=15
+        if 30<=score_actuel<100:
+            p_vitesse=20
 
 
 
         fonde(xf, yf)
         mario(x, y, img)
-        brick(xb,yb)
-        petitebrick(xp,yp)
-        score(score_actuel)
 
+        petitebrick(xp,yp)
+
+        if xp<x<=xp+p_vitesse:
+            score_actuel+=1
+
+        score(score_actuel)
 
         pygame.display.update()
 
@@ -239,5 +259,4 @@ def jeu():
 menu()
 pygame.quit()
 quit()
-
 
