@@ -27,7 +27,7 @@ def Fonc_BlancRouge():
             Nrouge=Nrouge+1
         else:
             Nblanc=Nblanc+1
-    return Nblanc,Nrouge
+    return [Nblanc,Nrouge]
 
 
 
