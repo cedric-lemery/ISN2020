@@ -218,10 +218,8 @@ def jeu():
             xp=1400
             yp=randint(0, 600)
 
-        print(xp,x-50,xp+p_vitesse,xp<(x-50)<xp+p_vitesse)
-        if xp<(x-50)<xp+p_vitesse:
+        if xp<=(x-50)<xp+p_vitesse:
             score_actuel+=1
-            print('ok')
 
 
 
