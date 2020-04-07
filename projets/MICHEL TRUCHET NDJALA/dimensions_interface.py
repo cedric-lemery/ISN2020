@@ -14,9 +14,15 @@ Fenetre.wm_attributes("-fullscreen","1")
 
 Fenetre.configure(bg="blue")
 
+w,h = Fenetre.winfo_screenwidth(), Fenetre.winfo_screenheight()
+#maintenant w & h ont les dimensions de la fenêtre
+
 
 Texte1=Label(Fenetre,text="bienvenue dans le fameux jeu MASTERMIND !", bg="red")
 Texte1.place(x=750, y=60)
+# du coup on peut faire à la plage :
+# Texte1.place(x=int(0.5*w), y=int(0.1*h)) par exemple
+# pour mettre Texte1 à 50 % en largeur & 10 % en hauteur
 
 Texte2=Label(Fenetre,text="Element 1", bg="red")
 Texte2.place(x=50, y=30)
