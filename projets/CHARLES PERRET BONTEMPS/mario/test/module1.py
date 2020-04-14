@@ -256,7 +256,7 @@ def jeu():
 
 
 
-menu()
+
 pygame.quit()
 quit()
 
