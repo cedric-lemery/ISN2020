@@ -5,9 +5,11 @@ class Enemy:
     imgs = []
 
 
-    def __init__(self, x, y, width, height):
+    def __init__(self, x, y, width, height,vitx,vity):
         self.x = x
         self.y = y
+        self.vitx = vitx
+        self.vity = vity
         self.width = width
         self.height = height
         self.animation_count = 0
@@ -17,10 +19,10 @@ class Enemy:
 
     def draw(self, win):
         self.animation_count +=1
-        self.img = self.imgs[self.animation_count]
+        self.img = pygame.image.load(os.path.join("assets", self.imgs[self.animation_count]))
         if self.animation_count >= len(self.imgs):
             self.animation_count = 0
-        win.blit(self,img,(self.x,self.y))
+        win.blit(self.img,(self.x,self.y))
         self.mouvement()
 
     def collision(self, X, Y):
@@ -30,7 +32,8 @@ class Enemy:
         return False
     
     def mouvement(self) :
-        pass
+        self.x+=self.vitx
+        self.y+=self.vity
 
     def hit(self):
         self.health -=1
