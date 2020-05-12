@@ -46,6 +46,7 @@ def menu():
 
     son_menu = pygame.mixer.Sound("Title Theme - New Super Mario Bros..ogg")
     son_menu.play(loops=-1)
+    son_menu.set_volume(0.3)
 
     pygame.display.flip()
 
