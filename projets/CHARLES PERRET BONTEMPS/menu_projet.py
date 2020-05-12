@@ -3,16 +3,16 @@ import pygame
 
 def quitter():
     root.destroy()
-    
+
+
 
 def vrai_faux():
-    root.state('iconic')
+    root.destroy()
     import vrai_ou_faux_projetISN
     vrai_ou_faux_projetISN.vouf()
 
 
 def calculatrice():
-    root.state('iconic')
     import cal
     cal.calcul()
 
