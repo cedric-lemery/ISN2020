@@ -28,7 +28,7 @@ def facile():
         ajout('T')
         Bouton_T.destroy()
 
-    photo=PhotoImage(file="108.png.png")
+
     zone_dessin = Canvas(Fenetre2,width=300,height=300,bd=8,relief="ridge")
     zone_dessin.create_image(250,250,image=photo)
     zone_dessin.pack()
@@ -61,6 +61,8 @@ def difficile():
 Fenetre=Tk()
 Fenetre.title('4 images 1 mot')
 Fenetre.geometry('500x500')
+
+photo=PhotoImage(file="108.png")
 
 Texte_a_afficher=Label(Fenetre,text="Bonjour et bienvenue sur 4 images 1 mot !!!")
 Texte_a_afficher.pack()
