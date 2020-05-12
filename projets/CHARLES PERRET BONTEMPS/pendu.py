@@ -5,7 +5,7 @@ Fenetre_pendu=Tk()
 Fenetre_pendu.title("Jeu du Pendu")
 Fenetre_pendu.geometry("500x300")
 
-Mon_LabelP1=Label(Fenetre_pendu,text="Entrez votre lettre",fg"black")
+Mon_LabelP1=Label(Fenetre_pendu,text="Entrez votre lettre",fg="black")
 Mon_LabelP1.place(x=30,y=50)
 Mon_LabelP2=Label(Fenetre_pendu,text="Il vous reste 15 tentatives",fg="red")
 Mon_LabelP2.place(x=70,y=70)
