@@ -1,6 +1,6 @@
 ﻿from tkinter import*
 
-Fenetre_pendu=Tk(
+Fenetre_pendu=Tk()
 Fenetre_pendu.title("Jeu du Pendu")
 Fenetre_pendu.geometry("500x300")
 
