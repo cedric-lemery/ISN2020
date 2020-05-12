@@ -30,19 +30,21 @@ ListeMots=["banane", "hippopotame", "gendarmerie", "election", "codage",
 Mot=random.choice(ListeMots)
 Liste_Mot=[lettre for lettre in Mot]
 MotCache=[lettre for lettre in Mot]
+
 idx=0
 for lettre in range(len(Mot)):
     MotCache[idx]='_'
     idx=idx+1
-print(MotCache)
+
 
 Mon_LabelP4=Label(Fenetre_pendu,text=MotCache)
 Mon_LabelP4.place(x=200,y=100)
 
 nombrtentative=15
-while nombrtentative > 0:
-    lettre = Mon_EntryP1.get()
-    lettre = lettre.lower()
+for loop in range(nombrtentative):
+    while len(Mon_EntryP1.get())<1:
+        lettre = Mon_EntryP1.get()
+        lettre = lettre.lower()
     if len(lettre) < 1:
         Mon_LabelP1.config(text="Vous n'avez rentré aucune lettre, réessayer")
         lettre = Mon_EntryP1.get()
