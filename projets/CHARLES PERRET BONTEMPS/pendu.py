@@ -11,6 +11,11 @@ def jeu():
         Mon_LabelP3.config(text="Vous avez gagné")
         Mon_LabelP4.config(text="Le mot était : "+Mot)
 
+    def defaite():
+        Mon_bouttonPT.destroy()
+        Mon_LabelP3.config(text="Vous avez épuisé toutes vos chances de gagner, vous avez donc perdu, adieu !")
+        Mon_LabelP4.config(text="Le mot à trouver était :"+ Mot)
+        Mon_LabelP4.place(x=200,y=130)
 
     ListeMots=["banane", "hippopotame", "gendarmerie", "election", "codage",
     "imprimmante", "mars", "virus", "continent", "numerique", "tatouages", "permis",
@@ -56,9 +61,7 @@ def jeu():
             gagner()
 
         if nombrtentative == 0:
-            Mon_LabelP3.config(text="Vous avez épuisé toutes vos chances de gagner, vous avez donc perdu, adieu !")
-            Mon_LabelP4.config(text="Le mot à trouver était :"+ Mot)
-            Mon_LabelP4.place(x=200,y=130)
+            defaite()
 
 
 
@@ -84,4 +87,5 @@ def jeu():
     Mon_bouttonPT=Button(Fenetre_pendu, text = "Test", fg = "green", command = Test)
     Mon_bouttonPT.place(x=130, y=150, width=70)
 
+    Fenetre_pendu.wm_resizable(0,0)
     Fenetre_pendu.mainloop()
