@@ -1,6 +1,10 @@
 from tkinter import *
 import pygame
 
+
+
+
+
 def quitter():
     root.destroy()
 
@@ -19,6 +23,7 @@ def calculatrice():
 
 def Mario():
     root.destroy()
+    pygame.quit()
     import module1
     module1.menu()
 
@@ -27,7 +32,7 @@ def pendu():
     import pendu
     pendu.jeu()
 
-
+pygame.init()
 root = Tk()
 root.title('Multi-jeux')
 
@@ -37,6 +42,16 @@ image = PhotoImage(file='menu2.0.gif')
 canvas = Canvas(root)
 canvas.pack(fill='both', expand=1)
 w,h = root.winfo_screenwidth(), root.winfo_screenheight()
+
+window_resolution = (1400, 800)
+pygame.display.set_caption("jouer du son")
+window_surface = pygame.display.set_mode(window_resolution)
+son = pygame.mixer.Sound("epic music.ogg")
+son.play(loops=-1)
+son.set_volume(0.2)
+pygame.display.flip()
+
+
 
 image = image.subsample(1)
 canvas.create_image(w//2, h//2, image=image, anchor=CENTER)
@@ -61,3 +76,5 @@ button4.place(x=w/1.28, y=h/3.1)
 button5.place(x=w/1.28, y=h/1.70)
 
 root.mainloop()
+pygame.quit()
+quit()
