@@ -23,7 +23,9 @@ def Mario():
     module1.menu()
 
 
-
+def pendu():
+    import pendu
+    pendu.jeu()
 
 
 root = Tk()
@@ -47,7 +49,7 @@ root.wm_attributes("-fullscreen","1")
 button=Button(root, text="Quitter", command=quitter, bg="red", font=10)
 button2=Button(root, text="Vrai ou Faux", command=vrai_faux, bg="light blue", font=10)
 button3=Button(root, text="calculatrice", command=calculatrice, bg="light blue", font=10)
-button4=Button(root, text="Pendu", bg="light blue", font=10)
+button4=Button(root, text="Pendu", bg="light blue", command=pendu, font=10)
 button5=Button(root, text="Mario Bros", bg="light blue",command=Mario, font=10)
 
 
