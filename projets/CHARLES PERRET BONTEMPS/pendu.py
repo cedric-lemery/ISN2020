@@ -1,5 +1,7 @@
 from tkinter import*
 import random
+
+nombrtentative=15
 def jeu():
 
     def Quitter():
@@ -30,8 +32,7 @@ def jeu():
     for lettre in range(len(Mot)):
         MotCache[idx]='_'
         idx=idx+1
-
-    nombrtentative=15
+        
     def Test():
         global nombrtentative
         lettre = Mon_EntryP1.get()
@@ -71,7 +72,7 @@ def jeu():
 
     Mon_LabelP1=Label(Fenetre_pendu,text="Entrez votre lettre",fg="black")
     Mon_LabelP1.place(x=30,y=50)
-    Mon_LabelP2=Label(Fenetre_pendu,text="Il vous reste 15 tentatives",fg="purple")
+    Mon_LabelP2=Label(Fenetre_pendu,text="Il vous reste "+str(nombrtentative)+" tentatives",fg="purple")
     Mon_LabelP2.place(x=200,y=70)
     Mon_LabelP3=Label(Fenetre_pendu,text="Voici votre avancement :")
     Mon_LabelP3.place(x=60,y=100)
