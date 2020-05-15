@@ -33,3 +33,15 @@ def Fonc_BlancRouge():
 
 z= Fonc_BlancRouge()
 print(z)
+
+# si la fonction maFonction return (a,b)
+#(x,y) = maFonction()
+
+# dessinnerPionsBlancsRouges(nbreBlanc, nbreRouge)
+# si cette fonction avec le résultat de z= Fonc_BlancRouge() -> dessinnerPionsBlancsRouges(z[0],z[1])
+# si cette fonction avec le résultat de (x,y) = maFonction() -> dessinnerPionsBlancsRouges(x,y)
+# on peut faire du coup dessinnerPionsBlancsRouges(maFonction())
+
+
+
+

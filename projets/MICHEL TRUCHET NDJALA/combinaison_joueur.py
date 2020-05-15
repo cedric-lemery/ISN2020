@@ -1,6 +1,6 @@
 ﻿import random
 def combi_joueur():
-    ListeNbre = [1,2,3,4,5,6,7,8]
+    ListeNbre = [1,2,3,4,5,6,7,8] # vous auriez pu l'avoir avec ListeNbre = [i for i in range(1,9)]
     Joueur1=0
     while Joueur1 not in ListeNbre:
         Joueur1=int(input('Choisis un premier nombre compris entre 1 et 8'))

@@ -18,3 +18,8 @@
     return z
 
 print(couleur(5))
+
+# il y a plus simple :
+
+##couleur=["cyan","orange","blue",....
+##couleur[0] -> "cyan"
