@@ -24,7 +24,7 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
         self.message3 = Label(frame1, text='')
         self.message3.pack(side="top")
         self.message4 = Label(frame1, text='')
-        self.stop = ''
+        self.stop = '' 
 
         self.boutonQuitter = Button(frame3, text="QUITTER", command=self.quit, bg="red", fg="white")
         self.boutonQuitter.pack(side="left", padx=150, pady=10)
