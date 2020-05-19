@@ -13,6 +13,10 @@ y0=10
 xpas=110
 x1=18
 y1=18
+x2=16
+y2=16
+x3=17
+y3=17
 
 
 Fenetre=Tk()
@@ -80,5 +84,18 @@ Mon_boutonRose.place(x=int(w*0.60),y=int(h*0.20),width=18,height=18)
 
 Mon_canvasReponses = Canvas(bg='black')
 Mon_canvasReponses.place(x=int(w*0.70),y=int(h*0.10),width=250,height=500)
+
+Mon_canvasReponses = Canvas(bg='black')
+
+Mon_canvasReponses.place(x=int(w*0.70),y=int(h*0.10),width=250,height=500)
+
+xpas=10
+xlong=5
+ypas=10
+ylong=5
+for i in range (3):
+    x=x2
+    y=y2+i*ypas
+    Mon_canvasReponses.create_rectangle(x,y,x+xlong,y+ylong,fill='red')
 
 Fenetre.mainloop()
