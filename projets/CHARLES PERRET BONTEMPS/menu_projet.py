@@ -3,6 +3,7 @@ import pygame
 
 
 
+#
 
 
 def quitter():
@@ -24,7 +25,8 @@ def calculatrice():
 def Mario():
     root.destroy()
     pygame.quit()
-    import module1
+    import mario.module1 as module1
+    module1.init_game('mario/')
     module1.menu()
 
 

@@ -2,21 +2,26 @@ import pygame
 from random import *
 from threading import Timer
 
+def init_game(folderImag):
+    global surface,blue,son_menu, fond_menu
+    pygame.init()
 
-pygame.init()
+    surface = pygame.display.set_mode((1400, 800))
+    pygame.display.set_caption("mario bros")
 
-surface = pygame.display.set_mode((1400, 800))
-pygame.display.set_caption("mario bros")
+    blue = (100, 100, 255)
 
-blue = (100, 100, 255)
+    fond = pygame.image.load(folderImag+"fond.png").convert()
 
-fond = pygame.image.load("fond.png").convert()
+    img = pygame.image.load(folderImag+"mario2.jpg")
+    brickmario = pygame.image.load(folderImag+"brick_mario.png")
+    brickmove = pygame.image.load(folderImag+"petite_brick_mario.png")
 
-img = pygame.image.load("mario2.jpg")
-brickmario = pygame.image.load("brick_mario.png")
-brickmove = pygame.image.load("petite_brick_mario.png")
+    fond_menu = pygame.image.load(folderImag+"menu2.3.jpg").convert()
 
-fontScore=pygame.font.Font(None, 50)
+    son_menu = pygame.mixer.Sound(folderImag+"Title Theme - New Super Mario Bros..ogg")
+
+    fontScore=pygame.font.Font(None, 50)
 
 def score(compte):
     texte=fontScore.render("score : " + str(compte), True, (0,0,0))
@@ -24,17 +29,21 @@ def score(compte):
 
 
 def fonde(xf, yf):
+    global surface
     surface.blit(fond, (xf,yf))
 def mario(x, y, image):
+    global surface
     surface.blit(image, (x,y))
 
 def petitebrick(xp,yp):
+    global surface
     surface.blit(brickmove, (xp,yp))
 
 
 
 
 def menu():
+    global son_menu
     def gameOver():
         pygame.quit()
         quit()
@@ -44,7 +53,6 @@ def menu():
     window_surface = pygame.display.set_mode(window_resolution)
 
 
-    son_menu = pygame.mixer.Sound("Title Theme - New Super Mario Bros..ogg")
     son_menu.play(loops=-1)
     son_menu.set_volume(0.1)
 
@@ -56,15 +64,17 @@ def menu():
     text3 = font.render("maintenir espace pour éviter les cubes volants",1,(0,0,0))
 
     game_over=False
-    fond_menu = pygame.image.load("menu2.3.jpg").convert()
+
     xm=0
     ym=0
     xt=350
     yt=400
     def fondmenu(xm,ym):
+        global surface, fond_menu
         surface.blit(fond_menu, (xm,ym))
 
     def texte(xt,yt):
+        global surface
         surface.blit(text, (xt,yt))
         yt=500
         xt=400
@@ -102,6 +112,7 @@ def gameover():
     xt=350
     yt=600
     def texte(xt,yt):
+        global surface
         surface.blit(text, (xt,yt))
 
     font=pygame.font.Font(None, 60)
@@ -114,6 +125,7 @@ def gameover():
     pygame.display.flip()
 
     def imagego(xgo,ygo):
+        global surface
         surface.blit(imggo, (xgo,ygo))
 
     game_over = False
@@ -133,6 +145,7 @@ def gameover():
 
 
 def principale():
+    global blue, son_jeu
     xl=0
     yl=0
     pygame.mixer.pause()
@@ -142,11 +155,13 @@ def principale():
 
     fondl = pygame.image.load("loading.png").convert()
     def fondm(xl,yl):
+        global surface
         surface.blit(fondl, (xl,yl))
 
     font=pygame.font.Font(None, 100)
     imgc = font.render("appuyer sur espace pour commencer",1,(0,0,0))
     def imagec(xc,yc):
+        global surface
         surface.blit(imgc, (xc,yc))
     xc=100
     yc=250
@@ -167,6 +182,7 @@ def principale():
 
 
 def jeu():
+    global surface,blue
     x=200
     y=200
     xf=0
@@ -254,10 +270,10 @@ def jeu():
         pygame.display.update()
 
 
+if __name__ == "__main__":
+    init_game('./')
+    menu()
 
-
-menu()
-
-pygame.quit()
-quit()
+    pygame.quit()
+    quit()
 
