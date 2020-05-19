@@ -1,11 +1,6 @@
 from tkinter import *
 import pygame
 
-
-
-#
-
-
 def quitter():
     root.destroy()
 
@@ -13,8 +8,8 @@ def quitter():
 
 def vrai_faux():
     root.destroy()
-    import vrai_ou_faux_projetISN
-    vrai_ou_faux_projetISN.vouf()
+    import Vrai_ou_Faux_Final
+    Vrai_ou_Faux_Final.vouf()
 
 
 def calculatrice():
@@ -50,7 +45,7 @@ pygame.display.set_caption("jouer du son")
 window_surface = pygame.display.set_mode(window_resolution)
 son = pygame.mixer.Sound("epic music.ogg")
 son.play(loops=-1)
-son.set_volume(0.2)
+son.set_volume(0.1)
 pygame.display.flip()
 
 
