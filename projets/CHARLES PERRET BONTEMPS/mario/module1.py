@@ -3,7 +3,7 @@ from random import *
 from threading import Timer
 
 def init_game(folderImag):
-    global surface,blue,son_menu, fond_menu
+    global surface,blue,son_menu, fond_menu, imggo, son_jeu, fondl, fond, img, brickmove, brickmario, son_go
     pygame.init()
 
     surface = pygame.display.set_mode((1400, 800))
@@ -16,15 +16,19 @@ def init_game(folderImag):
     img = pygame.image.load(folderImag+"mario2.jpg")
     brickmario = pygame.image.load(folderImag+"brick_mario.png")
     brickmove = pygame.image.load(folderImag+"petite_brick_mario.png")
-
     fond_menu = pygame.image.load(folderImag+"menu2.3.jpg").convert()
+    imggo = pygame.image.load(folderImag+"img_gameover.jpg").convert()
+    fondl = pygame.image.load(folderImag+"loading.png").convert()
 
     son_menu = pygame.mixer.Sound(folderImag+"Title Theme - New Super Mario Bros..ogg")
+    son_go = pygame.mixer.Sound(folderImag+"Lose Life - New Super Mario Bros..ogg")
+    son_jeu = pygame.mixer.Sound(folderImag+"Overworld Theme - New Super Mario Bros..ogg")
 
-    fontScore=pygame.font.Font(None, 50)
+
 
 def score(compte):
-    texte=fontScore.render("score : " + str(compte), True, (0,0,0))
+    font=pygame.font.Font(None, 50)
+    texte=font.render("score : " + str(compte), True, (0,0,0))
     surface.blit(texte,[10,0])
 
 
@@ -34,7 +38,6 @@ def fonde(xf, yf):
 def mario(x, y, image):
     global surface
     surface.blit(image, (x,y))
-
 def petitebrick(xp,yp):
     global surface
     surface.blit(brickmove, (xp,yp))
@@ -107,6 +110,7 @@ def menu():
 
 def gameover():
     pygame.mixer.pause()
+    global son_jeu
     xgo=0
     ygo=0
     xt=350
@@ -118,14 +122,13 @@ def gameover():
     font=pygame.font.Font(None, 60)
     text = font.render("appuyer sur échap pour continuer",1,(255,255,255))
 
-    imggo = pygame.image.load("img_gameover.jpg").convert()
 
-    son_jeu = pygame.mixer.Sound("Lose Life - New Super Mario Bros..ogg")
-    son_jeu.play()
+    son_go.play()
+    son_go.set_volume(0.1)
     pygame.display.flip()
 
     def imagego(xgo,ygo):
-        global surface
+        global surface, imggo
         surface.blit(imggo, (xgo,ygo))
 
     game_over = False
@@ -145,15 +148,16 @@ def gameover():
 
 
 def principale():
-    global blue, son_jeu
+    global blue, son_jeu, fondl
     xl=0
     yl=0
     pygame.mixer.pause()
-    son_jeu = pygame.mixer.Sound("Overworld Theme - New Super Mario Bros..ogg")
+
     son_jeu.play(loops=-1)
+    son_jeu.set_volume(0.1)
     pygame.display.flip()
 
-    fondl = pygame.image.load("loading.png").convert()
+
     def fondm(xl,yl):
         global surface
         surface.blit(fondl, (xl,yl))
