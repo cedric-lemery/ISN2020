@@ -11,7 +11,7 @@ Fenetre.title('Mastermind.exe')
 Fenetre.wm_attributes("-fullscreen","1")
 Fenetre.configure(bg="black")
 
-background_image = PhotoImage(file="D:\Guilhem\Mes documents\ISN\image feu.png")
+background_image = PhotoImage(file="imagefeu.png")
 
 Mon_bouton5 = Button(Fenetre,text="  Quitter  ",command=quitter,bg="red")
 Mon_bouton5.place(x=0,y=0)
