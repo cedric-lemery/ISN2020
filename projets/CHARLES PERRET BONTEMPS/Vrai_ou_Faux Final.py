@@ -1,4 +1,4 @@
-﻿from tkinter import *
+from tkinter import *
 import random
 from tkinter.messagebox import *
 
@@ -24,7 +24,7 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
         self.message3 = Label(frame1, text='')
         self.message3.pack(side="top")
         self.message4 = Label(frame1, text='')
-        self.stop = '' 
+        self.stop = ''
 
         self.boutonQuitter = Button(frame3, text="QUITTER", command=self.quit, bg="red", fg="white")
         self.boutonQuitter.pack(side="left", padx=150, pady=10)
@@ -32,10 +32,10 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
         self.boutonValider = Button(frame3, text="VALIDER", command=self.Jeu, bg="green", fg="white")
         self.boutonValider.pack(side="right", padx=150, pady=10)
 
-        self.rep = IntVar()
+        self.rep = StringVar()
 
-        self.bouton1 = Radiobutton(frame2, variable=self.rep, text="Vrai", value=1)
-        self.bouton2 = Radiobutton(frame2, variable=self.rep, text="Faux", value=2)
+        self.bouton1 = Radiobutton(frame2, variable=self.rep, text="Vrai", value="Vrai")
+        self.bouton2 = Radiobutton(frame2, variable=self.rep, text="Faux", value="Faux")
 
         self.boutonStop = Button(frame2, text="Stop", state=DISABLED, command=self.Fin)
 
@@ -72,8 +72,6 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
     def Suite(self):
 
         self.message3.pack_forget()
-        self.br["state"] = DISABLED             #Désactive les boutons de choix d'univers.
-        self.br2["state"] = DISABLED
         self.univers = IntVar()
         self.univers = self.varBut.get()        #Récupère la variable.
 
@@ -106,9 +104,9 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
         self.boutonValider["command"] = self.recupNbQuestion            #Modification de la commande du bouton Valider pour lancer la suite du programme.
 
     def recupNbQuestion(self):
-        self.message3["text"] = "----------Vous pouvez arrêter votre partie quand vous le voulez, il vous suffit " \
-                                "d'appuyer sur le bouton Stop---------\n"\
-                                "--------Votre score sera enregistré dans un fichier texte--------"
+        self.message3["text"] = "---------- Vous pouvez arrêter votre partie quand vous le voulez, il vous suffit " \
+                                "d'appuyer sur le bouton Stop ---------\n"\
+                                "-------- Votre score sera enregistré dans un fichier texte --------"
         self.message3.pack()
         self.message.pack_forget()
         self.message2.pack_forget()
@@ -159,7 +157,7 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
                 elif flag_question == True:
                     question = question + lettre
             self.affirmation = str(self.affirmation)
-            self.message3["text"] = "affirmation " +  self.affirmation +  ' : ' + question           #Affichage de la question.
+            self.message3["text"] = "Affirmation " +  self.affirmation +  ' : ' + question           #Affichage de la question.
             self.message3.pack(side=BOTTOM)
             self.affirmation = int(self.affirmation)
             self.affirmation = self.affirmation + 1
@@ -169,6 +167,7 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
             self.boutonSuivant["text"] = "Question suivante"
             self.bouton1.pack(side="top", expand=1)
             self.bouton2.pack(side="top", expand=1)
+            self.bouton1.select()
             self.boutonSuivant.pack(side="bottom", pady=10)
             self.boutonStop.pack(side="bottom", pady=5)
             self.boutonStop["state"] = NORMAL
@@ -183,7 +182,7 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
             self.message.pack(side=TOP)
             self.message2["text"] = "¯\_(ツ)_/¯ "
             self.message2.pack(side=TOP)
-            self.message3["text"] = "appuyez une nouvelle fois sur le bouton 'Suivant'"         #La première action du bouton suivant vérifie le nombre de question et change la commande.
+            self.message3["text"] = "Appuyez une nouvelle fois sur le bouton 'Suivant'"         #La première action du bouton suivant vérifie le nombre de question et change la commande.
             self.message3.pack()
             self.boutonSuivant.configure(text="Suivant", command=self.Fin)          #La deuxième action du bouton suivant lance la fin du programme.
 
@@ -192,11 +191,11 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
         self.repo = self.rep.get()        #Récupération de la réponse de l'utilisateur par les radioboutons vrai et faux.
         self.boutonValider["state"] = DISABLED
 
-        if self.repo == 1:          #Condition pour reconnaitre la réponse vrai ou fausse.
+        if self.repo == self.reponse:          #Condition pour reconnaitre la réponse vrai ou fausse.
             self.message3["text"] = "Bravo"
             self.score = self.score + 1
 
-        elif self.repo == 2:
+        elif self.repo != self.reponse:
             self.message3["text"] = "Dommage =)   \n"\
                                     "La réponse était " + self.reponse + "\n" + self.reponse2
 
@@ -219,8 +218,12 @@ class Interface:            #Déclaration de la classe permettant d'utiliser les
         self.boutonStop.pack_forget()
         self.score=str(self.score)
         self.nb_question = str(self.nb_question)
-        self.message["text"] = "Vous avez fini le questionnaire, votre score est de " + self.score +" bonne(s) réponse(s) sur " + \
-                                self.nb_question + " question(s)"           #Affiche la proportion de bonne réponse par rapport au nombre de questions choisit.
+        if self.nb_question == "1":         #Condition pour l'affichage pluriel du texte en fonction du nb de question(s).
+            self.message["text"] = "Vous avez fini le questionnaire, votre score est de " + self.score +" bonne réponse sur " + \
+                                    self.nb_question + " question"           #Affiche la proportion de bonne réponse par rapport au nombre de questions choisit.
+        else:
+            self.message["text"] = "Vous avez fini le questionnaire, votre score est de " + self.score + " bonne(s) réponse(s) sur " + \
+                          self.nb_question + " questions"           #Pareil
         self.score = int(self.score)
         self.nb_question = int(self.nb_question)
         if self.score > self.nb_question / 2:           #Condition pour félicitation si le joueur a plus de la moyenne de bonne réponse.
